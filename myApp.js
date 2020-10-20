@@ -28,7 +28,10 @@ app.use(express.static(__dirname + '/public'));
 
 /** 5) serve JSON on a specific route */
 app.get('/json', function(req, res) {
-    let message = process.env.MESSAGE_STYLE == 'uppercase' ? "Hello json".toUpperCase() : "Hello json";
+    let message = "Hello json";
+    if(process.env.MESSAGE_STYLE == 'uppercase') {
+        message.toUpperCase();
+    }
     console.log(process.env.MESSAGE_STYLE);
     res.json({
             message: message
