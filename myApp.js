@@ -50,12 +50,12 @@ app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
 }, (req, res) => {
-    res.send({time : req.time});
+    res.json({time : req.time});
 })
 
 /** 9)  Get input from client - Route parameters */
 app.get('/:word/echo', (req,res, next) => {
-    res.send({echo : req.params.word})
+    res.json({echo : req.params.word})
     next();
 });
 
